@@ -1,4 +1,26 @@
-h1 {
-    text-transform: uppercase;
-    color: pink;
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main {
+    border: 2px solid black;
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+
+    .order {
+        width: 30%;
+        border: 2px solid pink;
+        height: 100%;
+    }
+
+    .list {
+        width: 70%;
+        border: 2px solid white;
+        height: 100%;
+    }
 }
