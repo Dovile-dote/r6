@@ -1,26 +1,203 @@
+$spalva: rgb(49, 143, 245);
+
 .App {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    position: relative;
+    min-height: 100vh;
+    
+    h1 {
+      margin-top: 60px;
+      text-transform: uppercase; 
+      font-size: 60px; 
+    }
+
+    button {
+        cursor: pointer;
+    }
 }
 .main {
-    border: 2px solid black;
+    // border: 2px solid black;
     width: 80%;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: red;
+    // background-color: red;
 
     .order {
         width: 30%;
-        border: 2px solid pink;
+        // border: 2px solid pink;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .rodykle {
+            width: 100px;
+            height: 100px;
+            // border: 2px solid green;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .kv{
+                width: 25px;
+                height: 30px;
+                background-color: $spalva;
+            }
+
+            .tr{
+                border: 25px solid transparent;
+                border-top: 25px solid $spalva;
+                width: 1px;
+            }
+        }
     }
 
     .list {
         width: 70%;
-        border: 2px solid white;
+        // border: 2px solid red;
         height: 100%;
+
+        h2 {
+            text-align: center;
+        }
+
+        ul {
+            list-style: none;
+        }
+        .aprasas {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .paspirtukas {
+            transform: scale(0.5);
+
+            .ratlankis {
+                border: none;
+                background-color: $spalva;
+            }
+        }
+        
+        .buttons {
+            display: flex;
+
+            .taisyt,
+            .trint {
+                margin: 10px;
+                border: 2px solid $spalva;
+                border-radius: 8px;
+                padding: 10px 30px;
+                color: $spalva;
+                font-weight: bold;
+                background-color: white;
+            }
+        }
+    }
+
+}
+
+.add-new {
+    padding: 10px 50px;
+    background-color: white;
+    border-radius: 14px;
+    border: 4px solid $spalva;
+}
+
+.paspirtukas {
+    background-color: white;
+    padding: 10px;
+    padding-top: 20px;
+
+    .vairas {
+        position: relative;
+        transform: rotate(-15deg);
+        border-radius: 5px;
+        width: 4px;
+        height: 50px;
+        margin-left: 40px;
+        margin-bottom: -4px;
+        background-color: $spalva;
+    }
+
+    .vairas::before {
+        content: '';
+        position: absolute;
+        width: 12px;
+        height: 5px;
+        transform: rotate(15deg);
+        background-color: $spalva;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        left: -8px;
+        top:-2px;
+    }
+
+    .korpusas {
+        width: 50px;
+        margin-top: -10px;
+        margin-left: 10px;
+        border-bottom: 4px $spalva solid;
+    }
+
+    .ratai {
+        display: flex;
+        margin-top: -6px;
+
+        .ratlankis {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border-top: 6px solid $spalva;
+
+            .ratas {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                margin: 2px;
+                background-color: black;
+            }
+        }
+
+        .ratlankis:not(:first-child) {
+            margin-left: 36px;
+        }
     }
 }
+
+.editas {
+    position: absolute;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25, 79, 174, 0.552);
+    // padding: 20px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .edito-content {
+        width: 300px;
+        background-color: white;
+        padding: 20px;
+        border: 3px solid $spalva;
+        border-radius: 12px;
+    }
+
+    .edito-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h3 {
+            text-transform: uppercase;
+        }
+    }
+  }
