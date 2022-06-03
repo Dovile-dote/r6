@@ -51,15 +51,21 @@ function Edit({ modalData, setModalData, setEditData }) {
         </div>
         <div className="modal-body">
           {/* <div className="form-group"> */}
-          <p>Registracijos kodas:{registrationCode}</p>
-          <p>{modalData.lastUseTime}</p>
+          <p>
+            Registracijos kodas:<b>{registrationCode}</b>
+          </p>
+          <p>
+            <b>{modalData.lastUseTime}</b>
+          </p>
           <input
             type="date"
             className="form-control"
             onChange={(e) => setLastUseTime(e.target.value)}
             value={lastUseTime}
           />
-          <p>Nuvaziuota km: {modalData.totalRideKilometres}</p>
+          <p>
+            Nuvaziuota km:<b>{modalData.totalRideKilometres}</b>
+          </p>
           <input
             type="number"
             onChange={(e) => setTotalRideKilometres(e.target.value)}
@@ -96,7 +102,7 @@ function Edit({ modalData, setModalData, setEditData }) {
             ></input>
           </fieldset>
         </div>
-        <div className="modal-footer">
+        <div className="edito-footer">
           <button type="button" onClick={() => setModalData(null)}>
             Close
           </button>

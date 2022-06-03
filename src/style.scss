@@ -8,15 +8,19 @@ $spalva: rgb(49, 143, 245);
     border: 2px solid black;
     position: relative;
     min-height: 100vh;
+    font-family: 'Amatic SC', cursive;
     
     h1 {
+      color: $spalva;
       margin-top: 60px;
       text-transform: uppercase; 
-      font-size: 60px; 
+      font-size: 90px; 
     }
 
     button {
         cursor: pointer;
+        font-family: 'Amatic SC', cursive;
+        font-size: 20px;
     }
 }
 .main {
@@ -49,6 +53,7 @@ $spalva: rgb(49, 143, 245);
                 width: 25px;
                 height: 30px;
                 background-color: $spalva;
+                border-radius: 3px 3px 0 0;
             }
 
             .tr{
@@ -75,6 +80,7 @@ $spalva: rgb(49, 143, 245);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            font-size: 20px;
         }
 
         .paspirtukas {
@@ -182,6 +188,7 @@ $spalva: rgb(49, 143, 245);
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 20px;
 
     .edito-content {
         width: 300px;
@@ -199,5 +206,12 @@ $spalva: rgb(49, 143, 245);
         h3 {
             text-transform: uppercase;
         }
+    }
+
+    .edito-footer {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
   }
