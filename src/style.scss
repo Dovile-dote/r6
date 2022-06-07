@@ -1,4 +1,6 @@
 $spalva: rgb(49, 143, 245);
+$spalva2: rgb(193, 24, 78);
+// $spalva2: red;
 
 .App {
     display: flex;
@@ -32,13 +34,14 @@ $spalva: rgb(49, 143, 245);
     // background-color: red;
 
     .order {
-        width: 30%;
+        // width: 30%;
         // border: 2px solid pink;
         height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        // margin-right: 100px;
 
         .rodykle {
             width: 100px;
@@ -61,11 +64,29 @@ $spalva: rgb(49, 143, 245);
                 border-top: 25px solid $spalva;
                 width: 1px;
             }
+            animation: judesys 2s infinite;
         }
+        @keyframes judesys {
+            0% {
+                transform: translateY(0);
+            }
+        
+            50% {
+                transform: translateY(10px);
+            }
+        
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+    }
+    .nera {
+        display: none;
     }
 
     .list {
-        width: 70%;
+        // width: 70%;
         // border: 2px solid red;
         height: 100%;
 
@@ -75,36 +96,125 @@ $spalva: rgb(49, 143, 245);
 
         ul {
             list-style: none;
+            padding: 0;
+            
+            li{
+                margin-left:100px;
+            }
+            li:not(:last-child) {
+                padding-bottom: 20px;
+                border-bottom: 1px dashed $spalva;
+            }
         }
         .aprasas {
             display: flex;
             align-items: center;
             justify-content: space-between;
             font-size: 20px;
-        }
+            // border: 2px solid red;
+            flex-wrap: wrap;
+            
+            width: 50vw;
 
-        .paspirtukas {
-            transform: scale(0.5);
+            .flex {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                b {
+                    color: $spalva;
+                }
+                .paspirtukas {
+                    border-radius: 50%;
+                    transform: scale(0.5);
+                    padding: 30px 25px;
+            
+                    .ratlankis {
+                        border: none;
+                        background-color: $spalva;
+                    }
+                }
 
-            .ratlankis {
-                border: none;
-                background-color: $spalva;
+            }
+
+            .flex:hover {
+                transform: scale(1.2);
+            }
+
+            .red {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                b {
+                    color: $spalva2;
+                }
+                .paspirtukas {
+                    border-radius: 50%;
+                    transform: scale(0.5);
+                    padding: 30px 25px;
+
+                    .vairas {
+                        background-color: $spalva2;
+                    }
+                
+                    .vairas::before {
+    
+                        background-color: $spalva2;
+    
+                    }
+                
+                    .korpusas {
+                      border-bottom-color: $spalva2;
+                    }
+            
+                    .ratlankis {
+                        border-top: none;
+                        background-color: $spalva2;
+                    }
+                }
+      
+ 
+            }
+            .red:hover {
+                transform: scale(1.2);
             }
         }
-        
+
         .buttons {
             display: flex;
+            // margin-top: 30px;
 
             .taisyt,
             .trint {
                 margin: 10px;
                 border: 2px solid $spalva;
                 border-radius: 8px;
-                padding: 10px 30px;
+                padding: 5px 15px;
                 color: $spalva;
                 font-weight: bold;
                 background-color: white;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    fill: $spalva;
+                }
             }
+            .taisyt {
+                margin-left:0;
+            }
+            .taisyt:hover svg{
+                fill: darkblue;
+            }
+            .trint:hover{
+            border-color: $spalva2 !important;
+           
+             svg{
+                fill: $spalva2;
+                
+            } }
+            
         }
     }
 
@@ -115,6 +225,15 @@ $spalva: rgb(49, 143, 245);
     background-color: white;
     border-radius: 14px;
     border: 4px solid $spalva;
+    color: $spalva;
+}
+
+button:hover {
+    border-color: darkblue !important;
+    box-shadow: 0 0 10px $spalva;
+    color: darkblue !important;
+    transform: scale(1.1);
+  
 }
 
 .paspirtukas {
@@ -207,6 +326,19 @@ $spalva: rgb(49, 143, 245);
             text-transform: uppercase;
         }
     }
+    .km {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        input {
+        height: 30px;
+        width: 40px;
+        text-align: center;
+        
+    }
+    }
+    
 
     .edito-footer {
         margin-top: 10px;
@@ -214,4 +346,31 @@ $spalva: rgb(49, 143, 245);
         align-items: center;
         justify-content: space-between;
     }
+
+    b {
+        text-decoration: underline;
+    }
+
+    ::placeholder {
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    }
+    button {
+        font-weight: bold;
+        background-color: transparent;
+        border: 2px solid $spalva;
+        border-radius: 8px;
+        color: $spalva;
+
+        span{
+            font-size: 25px;
+        }
+    }
+
+    // button:hover {
+    //     color: black;
+    //     border: 2px solid black;
+    //     box-shadow: 0 0 10px $spalva;
+    // }
+  
   }

@@ -50,6 +50,13 @@ function App() {
     setLastUpdate(Date.now());
   }, [editData]);
 
+  // let kiekisPasp = 0;
+  // // let kiekKm = 0;
+  // useEffect(() => {
+  //   console.log('labas');
+  //   console.log('ilgis ' + paspirtukai.length);
+  // }, [lastUpdate]);
+
   return (
     <>
       <div className="App">
@@ -59,6 +66,8 @@ function App() {
             <Create setCreateData={setCreateData}></Create>
           </div>
           <div className="list">
+            {/* <div className={null === createData ? 'nera' : 'list'}> */}
+            {/* <h2>list</h2> */}
             <List
               paspirtukai={paspirtukai}
               setDeleteData={setDeleteData}
@@ -71,6 +80,16 @@ function App() {
           modalData={modalData}
           setModalData={setModalData}
         ></Edit>
+      </div>
+      <div>
+        {/* <h2>Statitika: paspirtukai {kiekisPasp}</h2> */}
+        {/* <h2>Statistika, paspirtuku: {paspirtukai.length}</h2> */}
+        {/* {paspirtukai.map((pas, i) => ( */}
+        {/* <h2 key={i}> */}
+        {/* alio */}
+        {/* {pas.totalRideKilometers} */}
+        {/* </h2> */}
+        {/* ))}{' '} */}
       </div>
     </>
   );

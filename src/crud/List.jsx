@@ -2,7 +2,7 @@ import Pasp from './Pasp';
 function List({ paspirtukai, setDeleteData, setModalData }) {
   return (
     <>
-      <h2>List of Colt's</h2>
+      {/* <h2>List of Colt's</h2> */}
 
       {/* <div> */}
       <ul>

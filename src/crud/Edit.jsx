@@ -2,12 +2,9 @@ import { useEffect, useState } from 'react';
 
 function Edit({ modalData, setModalData, setEditData }) {
   const [registrationCode, setRegistrationCode] = useState('');
-  // const [isBusy, setIsBusy] = useState(true);
-  const [isBusy, setIsBusy] = useState(0);
-
+  const [isBusy, setIsBusy] = useState(1);
   const [lastUseTime, setLastUseTime] = useState(0);
   const [totalRideKilometres, setTotalRideKilometres] = useState(0);
-  // const [radio, setRadio] = useState(isBusy);
 
   useEffect(() => {
     if (null === modalData) {
@@ -16,7 +13,7 @@ function Edit({ modalData, setModalData, setEditData }) {
     setRegistrationCode(modalData.registrationCode);
     setIsBusy(modalData.isBusy);
     setLastUseTime(modalData.lastUseTime);
-    setTotalRideKilometres(modalData.totalRideKilometres);
+    setTotalRideKilometres('');
   }, [modalData]);
 
   const handleEdit = () => {
@@ -24,9 +21,11 @@ function Edit({ modalData, setModalData, setEditData }) {
       registrationCode,
       isBusy,
       lastUseTime,
-      totalRideKilometres,
+      totalRideKilometres:
+        Number(modalData.totalRideKilometres) + Number(totalRideKilometres),
       id: modalData.id,
     };
+
     setEditData(data);
     setModalData(null);
   };
@@ -37,7 +36,6 @@ function Edit({ modalData, setModalData, setEditData }) {
 
   return (
     <div className="editas">
-      {/* <div className="modal-dialog modal-dialog-centered"> */}
       <div className="edito-content">
         <div className="edito-header">
           <h3>Editas</h3>
@@ -50,12 +48,11 @@ function Edit({ modalData, setModalData, setEditData }) {
           </button>
         </div>
         <div className="modal-body">
-          {/* <div className="form-group"> */}
           <p>
-            Registracijos kodas:<b>{registrationCode}</b>
+            Registracijos kodas: <b>{registrationCode}</b>
           </p>
           <p>
-            <b>{modalData.lastUseTime}</b>
+            Data: <b>{modalData.lastUseTime}</b>
           </p>
           <input
             type="date"
@@ -64,44 +61,43 @@ function Edit({ modalData, setModalData, setEditData }) {
             value={lastUseTime}
           />
           <p>
-            Nuvaziuota km:<b>{modalData.totalRideKilometres}</b>
+            Total ride: <b>{modalData.totalRideKilometres} km</b>
+            {/* <br /> */}
+            {/* <i>
+              bendrai{' '}
+              {Number(modalData.totalRideKilometres) +
+                Number(totalRideKilometres)}
+            </i>{' '} */}
+            {/* km */}
           </p>
-          <input
-            type="number"
-            onChange={(e) => setTotalRideKilometres(e.target.value)}
-            value={totalRideKilometres}
-          />
-          {/* </div> */}
+          <div className="km">
+            <label>Today ride: </label>
+            <input
+              type="text"
+              onChange={(e) => {
+                setTotalRideKilometres(e.target.value);
+              }}
+              value={totalRideKilometres}
+              placeholder={'km'}
+            />
+            <span>km</span>
+          </div>
 
-          <fieldset>
-            <legend>Radio button</legend>
-            laisva
+          <div>
+            BUSY
             <input
-              type="radio"
-              name="r"
-              // value="true"
-              // value={true}
-              value={0}
-              onChange={(e) => setIsBusy(e.target.value)}
-              // checked={Boolean(isBusy)}
-              checked={isBusy}
-              // checked={true}
+              type="checkbox"
+              onChange={() => {
+                // cbClick('a');
+                setIsBusy((s) => (s ? 0 : 1));
+                console.log('klick');
+                console.log(isBusy);
+              }}
+              checked={!isBusy}
             ></input>
-            uzimta
-            <input
-              type="radio"
-              name="r"
-              // value="false"
-              // value={false}
-              value={1}
-              onChange={(e) => setIsBusy(e.target.value)}
-              // checked={Boolean(isBusy)}
-              checked={isBusy}
-              // checked={true}
-              // checked={isBusy === 1}
-            ></input>
-          </fieldset>
+          </div>
         </div>
+
         <div className="edito-footer">
           <button type="button" onClick={() => setModalData(null)}>
             Close
@@ -111,7 +107,6 @@ function Edit({ modalData, setModalData, setEditData }) {
           </button>
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 }

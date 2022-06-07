@@ -21,28 +21,39 @@ function Pasp({ p, setDeleteData, setModalData }) {
           </p>
 
           <b>Last use time: {p.lastUseTime}</b>
-          <div>
-            <b> kur mano *** {p.isBusy} ***</b>
+        </div>
 
-            <div className="paspirtukas">
-              <div className="korpusas">
-                {' '}
-                <div className="vairas"></div>
-              </div>
-              <span className="ratai">
-                <div className="ratlankis"></div>
-                <div className="ratlankis"></div>
-              </span>
+        <div className={p.isBusy ? 'flex' : 'red'}>
+          <div
+            className="paspirtukas"
+            style={
+              p.isBusy
+                ? { boxShadow: 'none' }
+                : { boxShadow: '0 0 10px rgb(193, 24, 78)' }
+            }
+          >
+            <div className="korpusas">
+              {' '}
+              <div className="vairas"></div>
             </div>
+            <span className="ratai">
+              <div className="ratlankis"></div>
+              <div className="ratlankis"></div>
+            </span>
           </div>
+          <b>{p.isBusy ? 'Available' : 'Busy'}</b>
         </div>
 
         <div className="buttons">
           <button className="taisyt" onClick={handleEdit}>
-            EDIT
+            <svg>
+              <use href="#edit" />
+            </svg>
           </button>
           <button className="trint" onClick={handleDelete}>
-            DELETE
+            <svg>
+              <use href="#delete" />
+            </svg>
           </button>
         </div>
       </div>

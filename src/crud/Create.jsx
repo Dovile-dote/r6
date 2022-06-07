@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import rand from '../Functions/rand';
 function Create({ setCreateData }) {
-  //   const [id, setId] = useState(0);
   const [registrationCode, setRegistrationCode] = useState(rand(1000, 9999));
-  // const [isBusy, setIsBusy] = useState(false);
   const [isBusy, setIsBusy] = useState(1);
   const [lastUseTime, setLastUseTime] = useState(0);
   const [totalRideKilometres, setTotalRideKilometres] = useState(0);
@@ -17,7 +15,6 @@ function Create({ setCreateData }) {
     };
     setCreateData(data);
     setRegistrationCode(rand(1000, 9999));
-    // setIsBusy(false);
     setIsBusy(1);
     setLastUseTime(0);
     setTotalRideKilometres(0);
