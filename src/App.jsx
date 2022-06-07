@@ -18,6 +18,8 @@ function App() {
 
   const [editData, setEditData] = useState(null);
 
+  const [sum, setSum] = useState(0);
+
   // read
   useEffect(() => {
     setPaspirtukai(read());
@@ -29,6 +31,7 @@ function App() {
       return;
     }
     create(createData);
+
     setLastUpdate(Date.now());
   }, [createData]);
 
@@ -38,6 +41,7 @@ function App() {
       return;
     }
     remove(deleteData);
+    setSum((prev) => prev - deleteData.totalRideKilometres);
     setLastUpdate(Date.now());
   }, [deleteData]);
 
@@ -47,6 +51,7 @@ function App() {
       return;
     }
     edit(editData);
+    setSum((prev) => prev + editData.totalRideKilometres);
     setLastUpdate(Date.now());
   }, [editData]);
 
@@ -66,8 +71,8 @@ function App() {
             <Create setCreateData={setCreateData}></Create>
           </div>
           <div className="list">
-            {/* <div className={null === createData ? 'nera' : 'list'}> */}
-            {/* <h2>list</h2> */}
+            {/* <div className={paspirtukai.length ? 'list' : 'nera'}> */}
+            <h2>list</h2>
             <List
               paspirtukai={paspirtukai}
               setDeleteData={setDeleteData}
@@ -83,14 +88,10 @@ function App() {
       </div>
       <div>
         {/* <h2>Statitika: paspirtukai {kiekisPasp}</h2> */}
-        {/* <h2>Statistika, paspirtuku: {paspirtukai.length}</h2> */}
-        {/* {paspirtukai.map((pas, i) => ( */}
-        {/* <h2 key={i}> */}
-        {/* alio */}
-        {/* {pas.totalRideKilometers} */}
-        {/* </h2> */}
-        {/* ))}{' '} */}
+        <h2>Statistika, paspirtuku: {paspirtukai && paspirtukai.length}</h2>
+        <h2>km suma: {sum}</h2>
       </div>
+      {/* </div> */}
     </>
   );
 }
