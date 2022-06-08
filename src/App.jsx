@@ -72,7 +72,7 @@ function App() {
           </div>
           <div className="list">
             {/* <div className={paspirtukai.length ? 'list' : 'nera'}> */}
-            <h2>list</h2>
+            {/* <h2>list</h2> */}
             <List
               paspirtukai={paspirtukai}
               setDeleteData={setDeleteData}
