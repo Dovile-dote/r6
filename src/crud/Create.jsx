@@ -1,9 +1,53 @@
 import { useState } from 'react';
 import rand from '../Functions/rand';
 function Create({ setCreateData }) {
-  const [registrationCode, setRegistrationCode] = useState(rand(1000, 9999));
+  // const [registrationCode, setRegistrationCode] = useState(rand(1000, 9999));
+  const kodoElem = [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'Y',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'Z',
+    'W',
+    'X',
+    '0',
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+  ];
+  let kodas = '';
+  for (let i = 0; i < 8; i++) {
+    kodas += kodoElem[rand(0, kodoElem.length - 1)];
+  }
+
+  const [registrationCode, setRegistrationCode] = useState(kodas);
   const [isBusy, setIsBusy] = useState(1);
-  const [lastUseTime, setLastUseTime] = useState(0);
+  const [lastUseTime, setLastUseTime] = useState('');
   const [totalRideKilometres, setTotalRideKilometres] = useState(0);
 
   const handleCreate = () => {
@@ -14,9 +58,10 @@ function Create({ setCreateData }) {
       totalRideKilometres,
     };
     setCreateData(data);
-    setRegistrationCode(rand(1000, 9999));
+    // setRegistrationCode(rand(1000, 9999));
+    setRegistrationCode(kodas);
     setIsBusy(1);
-    setLastUseTime(0);
+    setLastUseTime('');
     setTotalRideKilometres(0);
   };
 

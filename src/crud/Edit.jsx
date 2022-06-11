@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 function Edit({ modalData, setModalData, setEditData }) {
   const [registrationCode, setRegistrationCode] = useState('');
   const [isBusy, setIsBusy] = useState(1);
-  const [lastUseTime, setLastUseTime] = useState(0);
+  const [lastUseTime, setLastUseTime] = useState('');
   const [totalRideKilometres, setTotalRideKilometres] = useState(0);
 
   useEffect(() => {

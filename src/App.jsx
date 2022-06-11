@@ -41,7 +41,6 @@ function App() {
       return;
     }
     remove(deleteData);
-    setSum((prev) => prev - deleteData.totalRideKilometres);
     setLastUpdate(Date.now());
   }, [deleteData]);
 
@@ -51,17 +50,19 @@ function App() {
       return;
     }
     edit(editData);
-    setSum((prev) => prev + editData.totalRideKilometres);
     setLastUpdate(Date.now());
   }, [editData]);
 
-  // let kiekisPasp = 0;
-  // // let kiekKm = 0;
-  // useEffect(() => {
-  //   console.log('labas');
-  //   console.log('ilgis ' + paspirtukai.length);
-  // }, [lastUpdate]);
-
+  // statistic
+  useEffect(() => {
+    if (null === paspirtukai) {
+      return;
+    }
+    setSum(0);
+    for (let i = 0; i < paspirtukai.length; i++) {
+      setSum((s) => s + paspirtukai[i].totalRideKilometres);
+    }
+  }, [paspirtukai]);
   return (
     <>
       <div className="App">
@@ -71,8 +72,6 @@ function App() {
             <Create setCreateData={setCreateData}></Create>
           </div>
           <div className="list">
-            {/* <div className={paspirtukai.length ? 'list' : 'nera'}> */}
-            {/* <h2>list</h2> */}
             <List
               paspirtukai={paspirtukai}
               setDeleteData={setDeleteData}
@@ -86,12 +85,18 @@ function App() {
           setModalData={setModalData}
         ></Edit>
       </div>
-      <div>
-        {/* <h2>Statitika: paspirtukai {kiekisPasp}</h2> */}
-        <h2>Statistika, paspirtuku: {paspirtukai && paspirtukai.length}</h2>
-        <h2>km suma: {sum}</h2>
+      <div className="statistic">
+        <h2>Statistika</h2>
+        <h3>
+          {' '}
+          siuo metu yra: <span>{paspirtukai && paspirtukai.length}</span> vnt.
+          veikianciu paspirtuku.
+        </h3>
+        <h3>
+          {' '}
+          bendra visu paspirtuku nuvaziuota suma: <span>{sum}</span> km
+        </h3>
       </div>
-      {/* </div> */}
     </>
   );
 }
