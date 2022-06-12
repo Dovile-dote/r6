@@ -14,7 +14,7 @@ function Pasp({ p, setDeleteData, setModalData }) {
           <p>
             {' '}
             <b>{p.id}. </b>
-            <b>Registracijos kodas : {p.registrationCode}</b>
+            <b>Registration code: {p.registrationCode}</b>
           </p>
           <p>
             <b>Total Ride: </b> {p.totalRideKilometres} <b> Km</b>

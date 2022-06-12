@@ -38,7 +38,7 @@ function Edit({ modalData, setModalData, setEditData }) {
     <div className="editas">
       <div className="edito-content">
         <div className="edito-header">
-          <h3>Editas</h3>
+          <h3>Edit</h3>
           <button
             type="button"
             className="close"
@@ -49,10 +49,10 @@ function Edit({ modalData, setModalData, setEditData }) {
         </div>
         <div className="modal-body">
           <p>
-            Registracijos kodas: <b>{registrationCode}</b>
+            Registration code: <b>{registrationCode}</b>
           </p>
           <p>
-            Data: <b>{modalData.lastUseTime}</b>
+            Last use time: <b>{modalData.lastUseTime}</b>
           </p>
           <input
             type="date"
