@@ -86,7 +86,7 @@ function App() {
         ></Edit>
       </div>
       <div className="statistic">
-        <h2>Statistika</h2>
+        <h2>Statistic</h2>
         <h3>
           {' '}
           siuo metu yra: <span>{paspirtukai && paspirtukai.length}</span> vnt.
