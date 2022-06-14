@@ -94,7 +94,10 @@ function App() {
         </h3>
         <h3>
           {' '}
-          bendra visu paspirtuku nuvaziuota suma: <span>{sum}</span> km
+          bendra visu paspirtuku nuvaziuota suma: <span>
+            {sum.toFixed(2)}
+          </span>{' '}
+          km
         </h3>
       </div>
     </>

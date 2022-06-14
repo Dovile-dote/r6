@@ -3,11 +3,11 @@ $spalva2: rgb(193, 24, 78);
 // $spalva2: red;
 
 .App {
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2px solid black;
     position: relative;
     min-height: 100vh;
     font-family: 'Amatic SC', cursive;
@@ -396,9 +396,9 @@ button:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 2px solid black;
     font-family: 'Amatic SC', cursive;
     color: $spalva;
+    border-top: 1px dashed $spalva;
     // margin-top: 60px;
     text-transform: uppercase; 
    
@@ -411,4 +411,28 @@ button:hover {
             font-size: 50px;
         }
     }
-  }
+}
+
+@media only screen and (max-width: 799px) {
+    .main {
+        flex-direction: column;
+        .list{
+            ul {
+                li {
+                margin-left: 0;
+                } 
+            }
+        }
+    }
+    .statistic {
+        h2 {
+            font-size: 40px; 
+       }
+       h3 {
+           font-size: 20px;
+           span {
+               font-size: 30px;
+           }
+       }
+    }
+}

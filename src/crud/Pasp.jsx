@@ -7,6 +7,7 @@ function Pasp({ p, setDeleteData, setModalData }) {
     setModalData(p);
   };
 
+  console.log(p.totalRideKilometres);
   return (
     <li>
       <div className="aprasas">
@@ -17,7 +18,7 @@ function Pasp({ p, setDeleteData, setModalData }) {
             <b>Registration code: {p.registrationCode}</b>
           </p>
           <p>
-            <b>Total Ride: </b> {p.totalRideKilometres} <b> Km</b>
+            <b>Total Ride: </b> {p.totalRideKilometres.toFixed(2)} <b> Km</b>
           </p>
 
           <b>Last use time: {p.lastUseTime}</b>
